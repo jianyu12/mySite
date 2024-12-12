@@ -1,0 +1,4 @@
+
+var hflink = '/epaper/';
+var searchurl = "http://58.18.5.50:8000/lucene/search.do?method=searchResult";
+var webroot = '/';

@@ -1,0 +1,56 @@
+var ssttt = new Date().getTime()-new Date("2020-04-04 00:00:00").getTime();
+if (ssttt>=0 && ssttt<86400000) {
+	document.writeln("<style>html {filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);-webkit-filter: grayscale(100%);}</style>\n");
+}
+
+function haveborder(obj,ev) {
+  var arrayValue = obj.coords.split(",");
+  var awidth = parseInt(arrayValue[2])-parseInt(arrayValue[0]);
+  var aheight = parseInt(arrayValue[3])-parseInt(arrayValue[1]);
+  var newdiv = document.getElementById("borderImg");
+  var titlediv = document.getElementById("titleImg");
+  with(newdiv.style) {
+     display = "block";
+     width = awidth+"px";
+	 	height = aheight+"px";
+	 	top = parseInt(arrayValue[1])+"px";
+	 	left = parseInt(arrayValue[0])+"px";
+	}
+ ev = ev || window.event;
+ var mousePos = mousePosition(ev);
+   with(titlediv.style) {
+     	top=mousePos.y+"px";
+	 		left=mousePos.x+"px";
+	 		display = "block";
+	 }
+  titlediv.innerHTML = obj.getAttribute("newstitle");
+}
+function noborder() {
+ var newdiv = document.getElementById("borderImg");
+ var titlediv = document.getElementById("titleImg");
+ newdiv.style.display = "none";
+ titlediv.style.display = "none";
+ }
+//获得鼠标位置
+function mousePosition(ev){
+if(ev.pageX || ev.pageY){
+return {x:ev.pageX, y:ev.pageY};}
+return {
+x:ev.clientX + document.documentElement.scrollLeft - document.body.clientLeft,
+y:ev.clientY + document.documentElement.scrollTop  - document.body.clientTop
+}; 
+} 
+//文章字体改变
+function font(n) {
+  document.getElementById("articleFont").style.fontSize = n+"px";
+  }
+  
+  function clickFrm(ahref, storyId) {
+		window.location.href=ahref;
+  	var storyIdTo = document.getElementById("story2");
+  	for(var i=0;i<storyIdTo.length;i++){
+  		if(storyIdTo.options[i].value==storyId){
+  			storyIdTo.options[i].selected=true;
+  		}
+  	}
+	}

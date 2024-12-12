@@ -1,0 +1,176 @@
+function clickFrm(href,storyId) {
+	document.getElementById("contentright").style.display="none";
+	document.getElementById("storyDetail").style.display="block";
+	document.getElementById("mainfrm").src=href;
+  var storyIdTo = document.getElementById("story2");
+  for(var i=0;i<storyIdTo.length;i++){
+  	if(storyIdTo.options[i].value==storyId){
+  		storyIdTo.options[i].selected=true;
+  		}
+  	}
+}
+
+function back(){
+	document.getElementById("contentright").style.display="block";
+	document.getElementById("storyDetail").style.display="none";
+}
+	
+//上一期
+function xmlUp(code, year, month, datey){
+	
+	var st = 0;
+	var dates=new Date(year, month-1, datey);
+	var nextDate = dates.getDate();
+	//然后得到这个时间，也就是JS的时间
+	for(var i=0;i<7;i++){
+			//循环开始因为第一次就要加1所以要从1开始循环，减1的话，逆过来循环就行
+			//nextDate=nextDate-1;//加一天
+			
+			var currentDate = dates.getDate();
+			var currentMonth = dates.getMonth()+1;
+			var currentYear = dates.getFullYear();
+			dates.setDate(dates.getDate()-1);
+			if(currentMonth < 10)
+				currentMonth = '0'+currentMonth;
+			if(currentDate < 10) 
+				currentDate = '0'+currentDate;
+			//最终拼出的URL
+			var linkHref = hflink+code+"/"+currentYear+"/"+currentMonth+"/"+currentDate+"/pub_index.html";
+			
+			//判断URL是否存在
+			var xmlHttp;
+			try{
+		 	if(window.ActiveXObject){
+		 		
+		 	   xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		 	}else{
+		 		
+		 	   xmlHttp = new XMLHttpRequest();
+		 	}
+			//alert(linkHref);
+			  xmlHttp.open("GET", linkHref, false);
+			 xmlHttp.send(null);
+			}catch(e){
+				alert(e.message);
+			}
+		
+	       if(xmlHttp.status==200){	    	
+	    	 	window.location.href=linkHref;
+				st = 1;
+	    		break;
+			}
+		}
+		if (st == 0) {
+			alert("对不起,没有找到上一期!");
+		}
+}
+	
+//下一期
+function xmlDown(code, year, month, datey){
+	  var st = 0;
+	 
+	  var dates=new Date(year,month-1,datey);
+	  var nextDate = dates.getDate();//然后得到这个时间，也就是JS的时间
+	  for(var i=0;i<7;i++){//循环开始因为第一次就要加1所以要从1开始循环，减1的话，逆过来循环就行
+	    
+	    var currentDate = dates.getDate();
+	    var currentMonth = dates.getMonth()+1;
+	    var currentYear = dates.getFullYear();
+		//dates.setDate(++nextDate);
+		dates.setDate(dates.getDate()+1);
+	    if(currentMonth<10)
+	      currentMonth = '0'+currentMonth;
+	    if(currentDate<10)
+	    	currentDate = '0'+currentDate;
+	    var linkHref = hflink+code+"/"+currentYear+"/"+currentMonth+"/"+currentDate+"/pub_index.html";
+		
+		try{
+			var xmlHttp; 
+			if(window.ActiveXObject){      
+				xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");      
+			}else{          
+				xmlHttp=new XMLHttpRequest();      
+			}  
+		  xmlHttp.abort();     
+		 // alert(linkHref);
+		  xmlHttp.open("GET", linkHref, false);    
+		  xmlHttp.send(null);
+		  if(xmlHttp.status==200){
+		  	
+		    	window.location.href= linkHref;
+				st = 1;
+				break;
+		  }
+		}
+		catch(e){
+			alert(e.message);
+		}
+    }
+    if(st == 0){
+			alert("对不起,没有找到下一期!");
+		}
+}			
+
+function loadJS( url, callback ){
+
+    var script = document.createElement('script'),
+
+        fn = callback || function(){};
+
+    script.type = 'text/javascript';
+
+    
+
+    //IE
+
+    if(script.readyState){
+
+        script.onreadystatechange = function(){
+
+            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+
+                script.onreadystatechange = null;
+
+                fn();
+
+            }
+
+        };
+
+    }else{
+
+        //其他浏览器
+
+        script.onload = function(){
+
+            fn();
+
+        };
+
+    }
+
+    script.src = url;
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+}
+
+function hideDisplayTitle(){}
+function  displayTitleMove (obj,stitle){}
+function displayTitleOver(obj,stitle){}
+
+loadJS('/epapertemplates/js/jquery.min.js',function(){
+	//console.log("log1");
+	var $jq = jQuery.noConflict(true);
+	
+    $jq(function(){  
+			//alert("方法2。");  
+			//console.log("log2");
+			$jq(".footer").append("<br>备案号：蒙ICP备10000619号-2");
+			$jq(".footer").append('<div style="width:300px;margin:0 auto; padding:10px 0;">'+
+	
+		 		'<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15220102010154" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/wa.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">蒙公网安备 15220102010154号</p></a>'+
+		 	'</div>');
+    });  
+});
+

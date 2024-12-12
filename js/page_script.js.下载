@@ -1,0 +1,22 @@
+﻿function searchSubmit(){
+	var formobj = document.getElementsByName('searchForm')[0];
+	if (document.getElementById('searchText').value == null || document.getElementById('searchText').value == ''){
+			alert('请输入搜索关键词!');
+			return false;
+	} else {
+			formobj.action=searchurl;
+			formobj.submit();
+	}
+}
+
+function clearCopyEvent(){
+		try{
+			document.body.oncontextmenu = null;
+			document.body.onselectstart = null;
+			document.body.onselect = null;
+			document.body.oncopy = null;
+		}catch(e){
+			//alert(e.message);
+		}
+	}
+	window.onload = clearCopyEvent;
