@@ -6,7 +6,7 @@
 <meta name="keywords" content="专题" />
 <meta name="description" content="队站开放迎“萌娃” 消防安全伴成长 &nbsp;双手动起来 &nbsp;腰包鼓起来 ," />
 
-<link href="/css/aqscnews.css" type="text/css" rel="stylesheet" />
+<link href="./css/aqscnews.css" type="text/css" rel="stylesheet" />
 
 <!--定义常量-->
 <script language="javascript" src="/constants.js"></script>
@@ -31,7 +31,7 @@
 </li>
 <li > <form method="post" name="searchForm">
 	  <input name="searchText" type="text" id="searchText" style=" border:1px solid #999999; margin-right:10px; width:200px;" />
-		<img src="/image/newblogimg.gif" border="0" align="absmiddle" onclick="searchSubmit();"/>
+		<img src="./image/newblogimg.gif" border="0" align="absmiddle" onclick="searchSubmit();"/>
 	</form> </li>
 </ul>
 </div>
@@ -66,7 +66,7 @@
 <a href="/epaper/xarb/2024/09/12/A03/story/4969427.shtml" class="on_4969433"   onmousemove="javascript:displayTitleMove(this,'瓜棚议事会');"  onmouseover="javascript:displayTitleOver(this,'瓜棚议事会');"  onmouseout="javascript:hideDisplayTitle();"></a>
 <a href="/epaper/xarb/2024/09/12/A03/story/4969427.shtml" class="on_4969428"   onmousemove="javascript:displayTitleMove(this,'打扫村屯卫生');"  onmouseover="javascript:displayTitleOver(this,'打扫村屯卫生');"  onmouseout="javascript:hideDisplayTitle();"></a>
 <div>
-<img class="snapshot_img" src="/image/001.png" style="margin-left:0px;margin-top:0px; "  width="350" height="550" align="left"/>
+<img class="snapshot_img" src="./image/img/001.jpg" style="margin-left:0px;margin-top:0px; "  width="350" height="550" align="left"/>
  </div>
 </div>
 </div>
@@ -100,7 +100,7 @@
 </div>
 <div class="rightOpr">
 	<a href="./119.html" class="rightSb" onclick="upPage();">上一版</a>
-	<a href="./123.html" class="rightXb" onclick="downPage();">下一版</a>
+	<a href="./1.html" class="rightXb" onclick="downPage();">下一版</a>
 </div>
 </div>
 <!--内容-->
@@ -111,7 +111,7 @@
 		<span onclick="showcalendar(event, this);" 
 					onfocus="showcalendar(event, this);
 					if(this.value=='0000-00-00')this.value=''">
-			<img src="/image/rq.gif" width="28" height="20" align="bottom" />
+			<img src="./image/rq.gif" width="28" height="20" align="bottom" />
 		</span>
 	</span>
    <span  class="oprRightPub">
@@ -132,7 +132,22 @@
 	<h4>本版标题</h4>
 	<ul>
 		<li><a href="./119.html">队站开放迎“萌娃” 消防安全伴成长
-			 <!-- &nbsp;双手动起来 &nbsp;腰包鼓起来  -->
+			</a></li>
+			<li><a href="./1.html">走进社区开展宣讲提高消防安全意识
+			</a></li>
+			<li><a href="./2.html">拆除应急逃生障碍物 确保“生命通道”畅通
+			</a></li>
+			<li><a href="./3.html">开展消防安全演练有效提升安全意识
+			</a></li>
+			<li><a href="./4.html">消防宣讲进万家安全知识入民心
+			</a></li>
+			<li><a href="./5.html">普及消防知识筑牢按屏障
+			</a></li>
+			<li><a href="./6.html">排查消防隐患 打通“生命通道”
+			</a></li>
+			<li><a href="./7.html">消防知识进校园安全守护伴成长
+			</a></li>
+			<li><a href="./123.html">消防演练进酒店筑牢安全“防火墙”
 			</a></li>
 
 	</ul>
@@ -141,17 +156,18 @@
 	<h4>版面目录</h4>	
 	<ul>
 		<li>
-<span class="listTitle"><a href="/">第A01版：一版</a></span>
-<a href="/"><span class="listpic"><img src="/image/box1.gif"/></span></a></li>
+<span class="listTitle"><a href="#">第A01版：一版</a></span>
+<a href="#"><span class="listpic"><img src="./image/box1.gif"/></span></a></li>
 <li>
-<span class="listTitle"><a href="/epaper/xarb/2024/09/12/A02/15112776.shtml">第A02版：二版</a></span>
-<a href="/epaper/xarb/2024/09/12/A02/15112776_l.pdf"><span class="listpic"><img src="/image/box1.gif"/></span></a></li>
+<span class="listTitle"><a href="#">第A02版：二版</a></span>
+<a href="#"><span class="listpic"><img src="./image/box1.gif"/></span></a></li>
 <li>
-<span class="listTitle"><a href="/">第A03版：专题</a></span>
-<a href="/epaper/xarb/2024/09/12/A03/15112777_l.pdf"><span class="listpic"><img src="/image/box1.gif"/></span></a></li>
+<span class="listTitle"><a href="#">第A03版：专题</a></span>
+<a href="#"><span class="listpic"><img src="./image/box1.gif"/></span></a></li>
 <li>
-<span class="listTitle"><a href="/">第A04版：专题</a></span>
-<a href="/"><span class="listpic"><img src="/image/box1.gif"/></span></a></li>
+<span class="listTitle"><a href="#">第A04版：专题</a></span>
+
+<a href="#"><span class="listpic"><img src="./image/box1.gif"/></span></a></li>
 
 	</ul>
 </div>
@@ -174,15 +190,15 @@
 		window.location.href= pubObj[pub].value;
 	}
 	//上一版
-	function upPage() {
-		var pub = 0 ;
-		var nowPage = pubObj.options.selectedIndex;	
-		pub = --nowPage;
-		if (pub < 0) {
-			pub = pubLength-1;
-		}
-		window.location.href= pubObj[pub].value;
-	}
+	// function upPage() {
+	// 	var pub = 0 ;
+	// 	var nowPage = pubObj.options.selectedIndex;	
+	// 	pub = --nowPage;
+	// 	if (pub < 0) {
+	// 		pub = pubLength-1;
+	// 	}
+	// 	window.location.href= pubObj[pub].value;
+	// }
 	//第一版
 	function first(){
 		var pub = 0 ;
@@ -198,7 +214,7 @@
 
   <div style="width:300px;margin:0 auto; padding:10px 0;">
 	<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15220102010154" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-		<img src="/image/wa.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">蒙公网安备 15220102010154号</p></a></div>
+		<img src="./image/wa.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">蒙公网安备 15220102010154号</p></a></div>
 
 </div>
 
